@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080613;
+  --foreground: #f6f4ff;
+  --muted: #bcb6d9;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --brand: #9d6bff;
+  --brand-strong: #7c46f8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(155, 100, 255, 0.22), transparent 35%),
+    radial-gradient(circle at 85% 10%, rgba(73, 58, 191, 0.26), transparent 40%),
+    linear-gradient(160deg, #080613 0%, #0c0a1d 45%, #100b24 100%);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.ambient {
+  position: fixed;
+  inset: -140px;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(169, 108, 255, 0.25), transparent 32%),
+    radial-gradient(circle at 80% 65%, rgba(118, 77, 248, 0.18), transparent 36%);
+  filter: blur(18px);
+}
+
+.section-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.8rem, 1.3rem + 1.5vw, 2.5rem);
+  font-weight: 800;
+}
+
+.hero-card,
+.project-card,
+.contact-card {
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+}
+
+.hero-card {
+  padding: 1.5rem;
+}
+
+.stat-card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.9rem;
+}
+
+.stat-card span {
+  display: block;
+  font-weight: 700;
+}
+
+.stat-card p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.project-card {
+  padding: 1.3rem;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(176, 133, 255, 0.45);
+}
+
+.contact-card {
+  padding: 1.6rem;
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid rgba(170, 138, 255, 0.45);
+  background: rgba(152, 105, 255, 0.13);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  color: #eee7ff;
+}
+
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.72rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 160ms ease;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+  box-shadow: 0 10px 26px rgba(106, 71, 226, 0.4);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--foreground);
+}
+
+.btn-outline:hover {
+  border-color: rgba(197, 169, 255, 0.65);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 1.25rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
+}
